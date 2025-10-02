@@ -1,0 +1,46 @@
+Retro Arcade
+Overview
+Retro Arcade is a web-based gaming platform featuring four classic arcade-style games with a retro black and white aesthetic. The application allows players to enter their name, select from multiple games, play the games, and track their scores on a global leaderboard. The games include Stack Game, Avoidance Runner, Bouncing Ball, and Target Shooter, all implemented using HTML5 Canvas for smooth gameplay.
+
+User Preferences
+Preferred communication style: Simple, everyday language.
+
+System Architecture
+Frontend Architecture
+Template Engine: Jinja2 templates with a base template structure for consistent UI
+CSS Framework: Custom retro-styled CSS using Orbitron font and black/white color scheme with glow effects
+Game Engine: HTML5 Canvas-based games with JavaScript classes for each game type
+Responsive Design: Mobile-friendly interface with touch event support for all games
+Navigation: Bottom navigation bar with home, scores, and about sections
+Backend Architecture
+Web Framework: Flask application with session-based user management
+Routing Structure: RESTful routes for game selection, gameplay, and score management
+Session Management: Flask sessions for maintaining player identity across pages
+Input Validation: Server-side validation for player names with regex sanitization
+Error Handling: Form validation with user-friendly error messages
+Data Storage
+Database: SQLite database for simplicity and portability
+Schema Design: Single scores table tracking player names, game types, scores, completion times, and timestamps
+Data Persistence: Automatic database initialization on application startup
+Game Logic
+Modular Design: Separate JavaScript classes for each game (StackGame, RunnerGame, BouncingBallGame, ShooterGame)
+Game State Management: Centralized game state objects tracking score, timing, and gameplay elements
+Canvas Rendering: 2D canvas context for all game graphics and animations
+Event Handling: Unified mouse and touch event handling for cross-platform compatibility
+External Dependencies
+Core Dependencies
+Flask: Python web framework for server-side logic
+SQLite3: Built-in Python database interface for data persistence
+Jinja2: Template engine (included with Flask) for HTML rendering
+Frontend Dependencies
+Google Fonts: Orbitron font family for retro aesthetic
+HTML5 Canvas API: For game rendering and animations
+Browser APIs: Touch events, mouse events, and timing functions
+Security Considerations
+Session Secret: Environment variable required for session security
+Input Sanitization: Regex validation for player names to prevent injection attacks
+CSRF Protection: Basic form handling with server-side validation
+Deployment Requirements
+Environment Variables: SESSION_SECRET must be configured
+File System: Write permissions required for SQLite database file
+Static Assets: CSS and JavaScript files served through Flask static file handling
