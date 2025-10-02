@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Stack Game - Retro Arcade{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 20px;">
+    <h1>STACK GAME</h1>
+    
+    <div class="score-display">
+        <span>SCORE: <span id="score">0</span></span>
+        <span>TIME: <span id="time">0</span>s</span>
+        <span>LEVEL: <span id="level">1</span></span>
+    </div>
+    
+    <canvas id="gameCanvas" class="game-canvas" width="400" height="600"></canvas>
+    
+    <div style="margin: 20px 0;">
+        <button id="startBtn" class="btn">START GAME</button>
+        <button id="pauseBtn" class="btn" style="display: none;">PAUSE</button>
+    </div>
+    
+    <div style="max-width: 400px; margin: 0 auto;">
+        <h3>HOW TO PLAY</h3>
+        <p>Click or tap when the moving block is perfectly aligned with the stack below. Perfect alignment gives bonus points!</p>
+        <p>Missing the alignment will make your block smaller. Game ends when the block becomes too small.</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/stack-game.js') }}"></script>
+{% endblock %}

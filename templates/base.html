@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Retro Arcade{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/canvas.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+</head>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('{{ url_for("static", filename="service-worker.js") }}')
+        .then(reg => console.log("Service worker registered:", reg.scope))
+        .catch(err => console.error("Service worker failed:", err));
+    });
+  }
+</script>
+
+<body>
+
+    
+
+        {% if request.endpoint == 'home' %}
+            <canvas id="canvas"></canvas>
+            <!-- 🎵 Background Music (hidden player) -->
+            <audio id="bgm" loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        {% endif %}
+
+    <div class="container">
+        {% block content %}{% endblock %}
+        <nav class="bottom-nav">
+            <a href="{{ url_for('home') }}" class="nav-icon">
+                <div class="icon home-icon">🏠</div>
+                <span>Home</span>
+            </a>
+            <a href="{{ url_for('highscores') }}" class="nav-icon">
+                <div class="icon score-icon">🏆</div>
+                <span>Scores</span>
+            </a>
+            <a href="{{ url_for('about') }}" class="nav-icon">
+                <div class="icon about-icon">ℹ️</div>
+                <span>About</span>
+            </a>
+        </nav>
+    </div>
+        {% if request.endpoint == 'home' %}
+            <script src="{{ url_for('static', filename='js/canvas.js') }}"></script>
+        {% endif %}
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

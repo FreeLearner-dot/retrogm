@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Enter Your Name - Retro Arcade{% endblock %}
+
+{% block content %}
+<div class="form-container" style="margin-top: 100px;">
+    <h2>Enter Your Name</h2>
+    {% if error %}
+        <div style="color: #ff6b6b; margin: 10px 0; padding: 10px; border: 1px solid #ff6b6b;">
+            {{ error }}
+        </div>
+    {% endif %}
+    <form method="POST">
+        <input type="text" name="player_name" placeholder="PLAYER NAME" required maxlength="20">
+        <br>
+        <button type="submit" class="btn">CONTINUE</button>
+    </form>
+</div>
+{% endblock %}

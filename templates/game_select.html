@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Select Game - Retro Arcade{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 50px;">
+    <h1>Welcome, {{ player_name }}!</h1>
+    <h2>Choose Your Game</h2>
+    
+    <div class="game-grid" style="margin-top: 40px;">
+        <div class="game-card">
+            <h3>Stack Game</h3>
+            <p>Stack falling blocks perfectly</p>
+            <a href="{{ url_for('game', game_name='stack') }}" class="btn">PLAY</a>
+        </div>
+        <div class="game-card">
+            <h3>Avoidance Runner</h3>
+            <p>Dodge obstacles at speed</p>
+            <a href="{{ url_for('game', game_name='runner') }}" class="btn">PLAY</a>
+        </div>
+        <div class="game-card">
+            <h3>Bouncing Ball</h3>
+            <p>Keep bouncing, avoid falling</p>
+            <a href="{{ url_for('game', game_name='bouncing') }}" class="btn">PLAY</a>
+        </div>
+        <div class="game-card">
+            <h3>Target Shooter</h3>
+            <p>Shoot flying targets</p>
+            <a href="{{ url_for('game', game_name='shooter') }}" class="btn">PLAY</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

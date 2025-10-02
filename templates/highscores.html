@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}High Score Board - Retro Arcade{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 30px;">
+    <h1>HIGH SCORE BOARD</h1>
+    {% if highscores %}
+    <table class="scoreboard-table">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Game</th>
+                <th>Score</th>
+                <th>Time</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for score in highscores %}
+            <tr>
+                <td>{{ score[0] }}</td>
+                <td>{{ score[1] }}</td>
+                <td>{{ score[2] }}</td>
+                <td>{{ score[3] }}s</td>
+                <td>{{ score[4][:10] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No high scores yet! Be the first to win!</p>
+    {% endif %}
+    <a href="{{ url_for('home') }}" class="btn">BACK TO GAMES</a>
+</div>
+{% endblock %}

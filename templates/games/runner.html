@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Avoidance Runner - Retro Arcade{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 20px;">
+    <h1>AVOIDANCE RUNNER</h1>
+    
+    <div class="score-display">
+        <span>SCORE: <span id="score">0</span></span>
+        <span>TIME: <span id="time">0</span>s</span>
+        <span>SPEED: <span id="speed">1</span>x</span>
+    </div>
+    
+    <canvas id="gameCanvas" class="game-canvas" width="800" height="400"></canvas>
+    
+    <div style="margin: 20px 0;">
+        <button id="startBtn" class="btn">START GAME</button>
+        <button id="pauseBtn" class="btn" style="display: none;">PAUSE</button>
+    </div>
+    
+    <div style="max-width: 600px; margin: 0 auto;">
+        <h3>HOW TO PLAY</h3>
+        <p>Use mouse/touch to move your character up and down to avoid obstacles coming from the right.</p>
+        <p>The game gets faster as you progress. Stay alive as long as possible for higher scores!</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/runner-game.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Retro Arcade - Home{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 50px;">
+    <h1>RETRO ARCADE</h1>
+    <p style="font-size: 1.2rem; margin: 30px 0;">Welcome to the retro gaming experience</p>
+    
+    <div style="margin: 40px 0;">
+        <a href="{{ url_for('player_name') }}" class="btn">START PLAYING</a>
+    </div>
+
+   
+    
+    <div class="game-grid" style="margin-top: 60px;">
+        <div class="game-card">
+            <h3>Stack Game</h3>
+            <p>Stack falling blocks in perfect alignment</p>
+            <!-- <a href="{{ url_for('static', filename='apk/stack-game.apk') }}" class="btn" download>Download APK</a> -->
+        </div>
+        <div class="game-card">
+            <h3>Avoidance Runner</h3>
+            <p>Navigate through obstacles at high speed</p>
+            <!-- <a href="{{ url_for('static', filename='apk/runner-game.apk') }}" class="btn" download>Download APK</a> -->
+        </div>
+        <div class="game-card">
+            <h3>Bouncing Ball</h3>
+            <p>Keep the ball bouncing and avoid hazards</p>
+            <!-- <a href="{{ url_for('static', filename='apk/bouncing-game.apk') }}" class="btn" download>Download APK</a> -->
+        </div>
+        <div class="game-card">
+            <h3>Target Shooter</h3>
+            <p>Shoot down flying targets with precision</p>
+            <!-- <a href="{{ url_for('static', filename='apk/shooter-game.apk') }}" class="btn" download>Download APK</a> -->
+        </div>
+    </div>
+</div>
+{% endblock %}

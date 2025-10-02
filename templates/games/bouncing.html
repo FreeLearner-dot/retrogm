@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Bouncing Ball - Retro Arcade{% endblock %}
+
+{% block content %}
+<div style="text-align: center; margin-top: 20px;">
+    <h1>BOUNCING BALL</h1>
+    
+    <div class="score-display">
+        <span>SCORE: <span id="score">0</span></span>
+        <span>TIME: <span id="time">0</span>s</span>
+        <span>BOUNCES: <span id="bounces">0</span></span>
+    </div>
+    
+    <canvas id="gameCanvas" class="game-canvas" width="400" height="600"></canvas>
+    
+    <div style="margin: 20px 0;">
+        <button id="startBtn" class="btn">START GAME</button>
+        <button id="pauseBtn" class="btn" style="display: none;">PAUSE</button>
+    </div>
+    
+    <div style="max-width: 400px; margin: 0 auto;">
+        <h3>HOW TO PLAY</h3>
+        <p>Click or tap to make the ball bounce upward. Avoid the obstacles falling from above!</p>
+        <p>Don't let the ball hit the ground or touch any obstacles. Each bounce earns points!</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/bouncing-game.js') }}"></script>
+{% endblock %}
